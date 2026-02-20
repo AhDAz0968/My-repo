@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Math project</title>
+</head>
+<body>
+    <h1>Classical Cryptography</h1>
+    <p>Classical Cryptography refers to the traditional methods of encrypting and decrypting messages that were used before modern computer-based cryptography. These methods were primarily manual and based on simple mathematical.</p>
+    <img src="https://lh6.googleusercontent.com/proxy/hd1l8d0iOiPBCFGvnShV-6kPcEKWLchS2J1-eCyuPZ8OpLENcwLdAsXigd7XRm3fSo-FW5GpCqVqrRCzFqnBO93jRNlcV868xHFLu1ai-QsHUrsD_kU193ESU34bHcZO4Q" alt="Classical Cryptography" width="400px">
+
+    <section id="caesar">
+        <h2>Caesar Cipher</h2>
+        <div class="meaning">
+            <p>The Caesar Cipher is one of the earliest classical substitution ciphers. It was used by Julius Caesar to send secret military messages.</p>
+            <h3>How it works</h3>
+            <p>Each letter is shifted by a fixed number (called the key).</p>
+            <p>If the key is k, then:</p>
+
+            <p>E(x)=(x+k)mod26</p>
+            <p>D(x)=(x-k)mod26</p>
+
+            <p>where:</p>
+            <ul>
+                <li><strong>x</strong> = position of letter (A=0, B=1, ..., Z=25)</li>
+                <li><strong>k</strong> = shift value</li>
+                <li><strong>mod 26</strong> = wrap around alphabet</li>
+            </ul>
+        </div>
+        
+        <div class="example">    
+            <h3>Example</h3>
+            <p>Key=3</p>
+            <p>HELLO</p>
+
+            <p>H → K</p>
+            <p>E → H</p>
+            <p>L → O</p>
+            <p>L → O</p>
+            <p>O → R</p>
+            <p>Encrypted text: <strong>KHOOR</strong></p>
+        </div>
+
+        <div class="cipher-demo">
+            <h2>Caesar Cipher Demo</h2>
+                <label for="textCaesar">Message:</label>
+                <input class="cipher-input" type="text" id="textCaesar" placeholder="Enter your messages">
+                <br>
+                <label for="shiftCaesar">Shift:</label>
+                <input class="cipher-input" type="number" id="shiftCaesar" placeholder="shift value">
+                <br>
+
+                <button button class="cipher-btn" onclick="encryptCaesar()">Encrypt</button>
+                <button button class="cipher-btn" onclick="decryptCaesar()">Decrypt</button>
+
+                <h3>Result:</h3>
+                <p id="resultCaesar"></p>
+        </div>
+    </section>
+
+    <section id="generalShife">
+        <h2>general Shift Cipher</h2>
+        <div class="meaning">
+            <p>The General Shift Cipher is a generalization of the Caesar Cipher.</p>
+            <p>Instead of always shifting by 3 (like used by Julius Caesar), you can shift by any integer key k.</p>
+
+            <h5>so: </h5>
+            <ul>
+                <li><strong>Alphabet</strong> = Z₍26₎ = {0,1,2,...,25}</li>
+                <li><strong>k</strong> = key (shift amount)</li>
+            </ul>
+
+            <p>Encryption Function</p>
+            <p>E<sub>k</sub>​(x)=(x+k)mod26</p>
+            <p>Decryption Function</p>
+            <p>D<sub>k</sub>​(x)=(x-k)mod26</p>
+            <p>This is a function:</p>
+            <p>E<sub>k</sub>​:Z<sub>26</sub>​→Z<sub>26<sub>​</p>
+            <p>It is a bijection (one-to-one and onto), so it has an inverse.</p>
+        </div>
+
+        <div class="example">
+            <h3>Example: </h3>
+            <p>Key=7</p>
+            <p>HELLO</p>
+
+            <p>H → O</p>
+            <p>E → L</p>
+            <p>L → S</p>
+            <p>L → S</p>
+            <p>O → V</p>
+            <p>Encrypted text: OLSSV</p>
+        </div>
+
+        <div class="cipher-demo">
+            <h2>General Shift Cipher Demo</h2>
+                <label for="textCaesarGeneral">Message:</label>
+                <input class="cipher-input" type="text" id="textGeneral" placeholder="Enter your messages">
+                <br>
+                <label for="shiftCaesarGeneral">Shift:</label>
+                <input class="cipher-input" type="number" id="shiftGeneral" placeholder="shift value">
+                <br>
+
+                <button button class="cipher-btn" onclick="encryptGeneral()">Encrypt</button>
+                <button button class="cipher-btn" onclick="decryptGeneral()">Decrypt</button>
+
+                <h3>Result:</h3>
+                <p id="resultGeneral"></p>
+        </div>
+    </section>
+    <section>
+        <h2>Affine Cipher</h2>
+        <div class="meaning">
+            <p>The Affine Cipher is a more advanced classical substitution cipher.</p>
+            <p>It is based on a mathematical function of the form:</p>
+            <p>E(x)=(ax+b)mod26</p>
+
+            <p>Where: </p>
+            <ul>
+                <li><strong>x</strong> = position of letter (A=0, B=1, ..., Z=25)</li>
+                <li><strong>a</strong> and <strong>b</strong> = keys</li>
+                <li><strong>mod 26</strong> = wrap around alphabet</li>
+            </ul>
+        </div>  
+
+        <div class="differences">
+            <p>How It's Different from Caesar / Shift</p>
+            <ul>
+                <li>Shift Cipher: <strong>E(x)=(x+k)mod26</strong></li>
+                <li>Affine Cipher: <strong>E(x)=(ax+b)mod26</strong></li>
+            </ul>
+        </div>
+
+        <div class="important">
+            <p><strong>Important Rule</strong><p>
+            <p>The key a must be coprime with 26. That means gcd(a,26)=1</p>
+        </div>
+
+        <div class="formula">
+            <p><strong>Decryption Formula</strong></p>
+            <p>To decrypt, we need the modular inverse of a.</p>
+            <p><strong>D(x)=a<sup>-1</sup>(x-b)mod26</strong></p>
+            <p>where: </p>
+            <ul>
+                <li><strong>a<sup>-1</sup> is the modular inverse of a modulo 26.</strong></li>
+                <li><strong>If a=5, the modular inverse of 5 mod 26 is 21 because: 5x21≡1(mod26)</strong></li>
+            </ul>
+        </div>
+
+        <div class="example">
+            <h3>Example:</h3>
+            <p>Let:</p>
+            <ul>
+                <li>a = 5</li>
+                <li>b = 8</li>
+            </ul>
+            <p>Encrypt HELLO:</p>
+            <p>H = 7</p>
+            <p>(5x7+8) mod 26 = 43 mod 26 = 17 = R</p>
+            <p>Final result:</p>
+            <p>HELLO → RCLLA</p>
+        </div>
+        <div class="cipher-demo">
+            <h2>Affine Cipher Demo</h2>
+            
+            <label for="textAffine">Message:</label>
+            <input type="text" class="cipher-input" id="textAffine" placeholder="Enter message">
+            <br>
+            <label for="shiftAffine">Shift:</label>
+            <input type="number" class="cipher-input" id="aKey" placeholder="Enter a value">
+            <br>
+            <label for="shiftAffine">Shift:</label>
+            <input type="number" class="cipher-input" id="bKey" placeholder="Enter b value">
+            <br>
+
+            <button class="cipher-btn" onclick="encryptAffine()">Encrypt</button>
+            <button class="cipher-btn" onclick="decryptAffine()">Decrypt</button>
+
+            <h3>Result:</h3>
+            <p id="resultAffine"></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Transposition Cipher</h2>
+        <div class="meaning">
+            <p>Unlike Caesar / Shift and Affine which change the letters themselves, a <strong>Transposition Cipher</strong> keeps the same letters but rearranges their positions.</p>
+
+            <h3>Key Ideas</h3>
+            <p>Substitution cipher → changes letters</p>
+            <p>Transposition cipher → changes order</p>
+            <p>So:</p>
+            <p>HELLO might become LHOEL</p>
+            <p>The letters are the same — just rearranged.</p>
+        </div>
+        <div class="example">
+            <h3>Basic Example:</h3>
+            <p>Example key: ZEBRA</p>
+            <p>Now assign numbers based on alphabetical order:</p>
+            <p>Z E B R A</p>
+            <p>5 3 2 4 1</p>
+            <p>Write the Message in Rows: HELLOWORLD</p>
+            <p>Write it under the key:</p>
+
+            <div id="table1">
+                <p>Z  E  B  R  A</p>
+                <p>5  3  2  4  1</p>
+                <p>-------------</p>
+                <p>H  E  L  L  O</p>
+                <p>W  O  R  L  D</p>
+            </div>
+            <p>Read Columns in Numerical Order (1 → 5)</p>
+            <p>Encrypted Text: ODLREOLLHW</p>
+        </div>
+
+        <div class="formula">
+            <h3>Encryption Formula</h3>
+            <p><strong>E(i)=π(i)</strong>This means: The letter at position i moves to position π(i).</p>
+            <h3>Decryption Formula</h3>
+            <p><strong>D(i)=π<sup>-1</sup>(i)</strong>That means:To decrypt, we reverse the rearrangement.</p>
+        </div>
+
+        <div class="cipher-demo">
+            <h2>Columnar Transposition Cipher demo</h2>
+            <label for="textAffine">Message:</label>
+            <input type="text" id="transText" placeholder="Enter message" class="cipher-input">
+            <br>
+            <label for="shiftAffine">Shift:</label>
+            <input type="text" id="transKey" placeholder="Enter key (e.g., ZEBRA)" class="cipher-input">
+            <br>
+
+            <button onclick="encryptTransposition()" class="cipher-btn">Encrypt</button>
+            <button onclick="decryptTransposition()" class="cipher-btn">Decrypt</button>
+
+            <h3>Result:</h3>
+            <p id="transResult"></p>
+        </div>
+    </section>
+    <section>
+        <div class="meaning">
+            <h2>RSA Cryptography</h2>
+            <p>RSA stands for:</p>
+            <ul>
+                <li>Ron Rivest</li>
+                <li>Adi Shamir</li>
+                <li>Leonard Adleman</li>
+            </ul>
+            <p>It is a public-key cryptosystem created in 1977.</p>
+            <p>Unlike classical ciphers (Caesar, Affine, Transposition), RSA:</p>
+            <ul>
+                <li>Uses two keys (public and private)</li>
+                <li>Is based on number theory</li>
+                <li>Relies on the difficulty of factoring large numbers</li>
+            </ul>
+            <h3>Type of Cipher</h3>
+            <p>RSA is:</p>
+            <ul>
+                <li>Asymmetric (Public-Key Cryptography)</li>
+                <li>Based on modular exponentiation</li>
+                <li>Based on prime numbers</li>
+            </ul>
+
+            <h3>Key Generation Steps</h3>
+            <p>Choose two prime numbers <strong>p</strong> and <strong>q</strong></p>
+            <p>p=5, q=11</p>
+            <p>Compute modulus <strong>n= p x q = 5 x 11 = 55</strong></p>
+            <p>Compute Euler’s Totient ϕ(n)=(p−1)(q−1), ϕ(55)=4×10=40</h4>
+            <p>Choose public exponent 𝑒</p>
+            <p>Conditions: 1 &lt e &lt ϕ(n), gcd(e,ϕ(n))=1</p>
+            <p>Choose: 𝑒 = 3</p>
+            <p>Compute private exponent 𝑑</p>
+            <p>Keys</p>
+            <p>Public Key:(e, n)=(3, 55)</p>
+            <p>Private Key:(𝑑, 𝑛)=(27, 55)</p>
+        </div>
+        <div class="formula">
+            <h3>RSA Encryption Formula</h3>
+            <strong>C=M<sup>e</sup> mod n</strong>
+            <p>where:</p>
+            <ul>
+                <li>M = message (number form)</li>
+                <li>e = public key exponent</li>
+                <li>𝑛 = modulus</li>
+            </ul>
+            <h3>RSA Decryption Formula</h3>
+            <strong>M=C<sup>d</sup> mod n</strong>
+            <p>Where: 𝑑 = private key exponent</p>
+        </div>
+        <div class="example">
+            <h3>Example:</h3>
+            <p>Encrypt message: <strong>M=7</strong></p>
+            <p>Encryption:</p>
+            <p>C = 7<sup>3</sup> mod 55</p>
+            <p>C = 343 mod 55</p>
+            <p>C = 13</p>
+            <p>Encrypted message = 13</p>
+            <br>
+            <p>Decrypt: <strong>M = 13<sup>27</sup> mod 55</strong></p>
+            <p>Result: M=7</p>
+            <p>Original message recovered.</p>
+        </div>
+        <div class="cipher-demo">
+            <h2>RSA Key Generation Demo</h2>
+            <label></label>
+            <label for="textAffine">Prime p:</label>
+            <input type="number" id="primeP" placeholder="Enter prime p" class="cipher-input">
+            <br>
+            <label for="textAffine">Prime q:</label>
+            <input type="number" id="primeQ" placeholder="Enter prime q" class="cipher-input">
+            <br>
+            <label for="textAffine">Public Exponent e</label>
+            <input type="number" id="publicE" placeholder="Enter public exponent e" class="cipher-input">
+            <br>
+            <button onclick="generateRSA()" class="cipher-btn">Generate Keys</button>
+            <h3>Result:</h3>
+            <p id="rsaResult"></p>
+        </div>
+
+        <div class="cipher-demo">
+            <h3>RSA Encryption Demo</h3>
+
+            <label for="textAffine">p:</label>
+            <input type="number" id="rsaP" placeholder="Enter prime p" class="cipher-input">
+            <br>
+            <label for="textAffine">q:</label>
+            <input type="number" id="rsaQ" placeholder="Enter prime q" class="cipher-input">
+            <br>
+            <label for="textAffine">e:</label>
+            <input type="number" id="rsaE" placeholder="Enter public exponent e" class="cipher-input">
+            <br>
+            <label for="textAffine">Message (number):</label>
+            <input type="number" id="rsaMessage" placeholder="Enter message (number)" class="cipher-input">
+            <br>
+            <button onclick="rsaEncrypt()" class="cipher-btn">Encrypt</button>
+            <button onclick="rsaDecrypt()" class="cipher-btn">Decrypt</button>
+
+            <h3>Result:</h3>
+            <p id="rsaEncryptResult"></p>
+        </div>
+
+        <div class=" cipher-demo">
+            <h3>RSA Decryption Demo</h3>
+            <label for="decP">p:</label>
+            <input type="number" id="decP" placeholder="Enter prime p" class="cipher-input">
+            <br>
+            <label for="decQ">q:</label>
+            <input type="number" id="decQ" placeholder="Enter prime q" class="cipher-input">
+            <br>
+            <label for="decE">e:</label>
+            <input type="number" id="decE" placeholder="Enter public exponent e" class="cipher-input">
+            <br>
+            <label for="decC">Encrypted message (C):</label>
+            <input type="number" id="decC" placeholder="Enter encrypted message" class="cipher-input">
+            <br>
+            <button onclick="rsaDecryptDemo()" class="cipher-btn">Decrypt</button>
+
+            <h3>Result:</h3>
+            <p id="rsaDecryptResult"></p>
+        </div>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

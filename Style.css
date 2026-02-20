@@ -1,0 +1,45 @@
+body{
+    
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 60px;
+    background-color:bisque;
+}
+
+h1{
+    color: darkred;
+}
+
+ul {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.cipher-input { 
+    padding: 10px;
+    width: 250px; 
+    margin: 10px; 
+    font-size: 15px; 
+    border-radius: 15px; }
+
+.cipher-btn { 
+    background-color: darkblue; 
+    color: white; padding: 10px; 
+    margin: 10px; 
+    font-size: 20px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 20px; }
+
+button:hover {
+    background-color: navy;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+}
