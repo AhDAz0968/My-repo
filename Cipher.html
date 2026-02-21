@@ -7,10 +7,12 @@
     <title>Math project</title>
 </head>
 <body>
-    <h1>Classical Cryptography 1</h1>
+    <h1>Classical Cryptography</h1>
     <p>Classical Cryptography refers to the traditional methods of encrypting and decrypting messages that were used before modern computer-based cryptography. These methods were primarily manual and based on simple mathematical.</p>
-    <img src="https://lh6.googleusercontent.com/proxy/hd1l8d0iOiPBCFGvnShV-6kPcEKWLchS2J1-eCyuPZ8OpLENcwLdAsXigd7XRm3fSo-FW5GpCqVqrRCzFqnBO93jRNlcV868xHFLu1ai-QsHUrsD_kU193ESU34bHcZO4Q" alt="Classical Cryptography" width="400px">
-
+    <figure>
+        <img src="https://lh6.googleusercontent.com/proxy/hd1l8d0iOiPBCFGvnShV-6kPcEKWLchS2J1-eCyuPZ8OpLENcwLdAsXigd7XRm3fSo-FW5GpCqVqrRCzFqnBO93jRNlcV868xHFLu1ai-QsHUrsD_kU193ESU34bHcZO4Q" alt="Classical Cryptography" width="400px">
+            <figcaption>Classical Cryptography</figcaption>
+    </figure>
     <section id="caesar">
         <h2>Caesar Cipher</h2>
         <div class="meaning">
@@ -29,7 +31,7 @@
                 <li><strong>mod 26</strong> = wrap around alphabet</li>
             </ul>
         </div>
-        
+
         <div class="example">    
             <h3>Example</h3>
             <p>Key=3</p>
@@ -52,8 +54,8 @@
                 <input class="cipher-input" type="number" id="shiftCaesar" placeholder="shift value">
                 <br>
 
-                <button button class="cipher-btn" onclick="encryptCaesar()">Encrypt</button>
-                <button button class="cipher-btn" onclick="decryptCaesar()">Decrypt</button>
+                <button class="cipher-btn" onclick="encryptCaesar()">Encrypt</button>
+                <button class="cipher-btn" onclick="decryptCaesar()">Decrypt</button>
 
                 <h3>Result:</h3>
                 <p id="resultCaesar"></p>
@@ -103,14 +105,14 @@
                 <input class="cipher-input" type="number" id="shiftGeneral" placeholder="shift value">
                 <br>
 
-                <button button class="cipher-btn" onclick="encryptGeneral()">Encrypt</button>
-                <button button class="cipher-btn" onclick="decryptGeneral()">Decrypt</button>
+                <button class="cipher-btn" onclick="encryptGeneral()">Encrypt</button>
+                <button class="cipher-btn" onclick="decryptGeneral()">Decrypt</button>
 
                 <h3>Result:</h3>
                 <p id="resultGeneral"></p>
         </div>
     </section>
-    <section>
+    <section id="Affine">
         <h2>Affine Cipher</h2>
         <div class="meaning">
             <p>The Affine Cipher is a more advanced classical substitution cipher.</p>
@@ -183,7 +185,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="Transposition">
         <h2>Transposition Cipher</h2>
         <div class="meaning">
             <p>Unlike Caesar / Shift and Affine which change the letters themselves, a <strong>Transposition Cipher</strong> keeps the same letters but rearranges their positions.</p>
@@ -238,7 +240,7 @@
             <p id="transResult"></p>
         </div>
     </section>
-    <section>
+    <section id="RSA">
         <div class="meaning">
             <h2>RSA Cryptography</h2>
             <p>RSA stands for:</p>

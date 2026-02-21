@@ -1,13 +1,26 @@
 body{
-    
     font-family: Arial, sans-serif;
+    font-size: 16px;
     text-align: center;
-    margin-top: 60px;
-    background-color:bisque;
+    background-color: bisque;
+    border: 2px inset #969533;
+    border-radius: 14px;
+    margin: 60px 100px;  
+    padding: 15px;
 }
 
 h1{
     color: darkred;
+    margin-bottom: 20px;
+}
+
+h2{
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p{
+    line-height: 1.6px;
 }
 
 ul {
@@ -21,25 +34,53 @@ ul {
     padding: 10px;
     width: 250px; 
     margin: 10px; 
-    font-size: 15px; 
-    border-radius: 15px; }
+    font-size: 15px;
+    border-radius: 15px; 
+}
 
 .cipher-btn { 
     background-color: darkblue; 
-    color: white; padding: 10px; 
+    color: white;
+    padding: 12px 20px;
     margin: 10px; 
     font-size: 20px; 
     cursor: pointer; 
     border: none; 
-    border-radius: 20px; }
+    border-radius: 20px;
+    transition: 0.3s ease; 
+}
 
-button:hover {
+.cipher-btn:hover {
     background-color: navy;
+    transform: scale(1.05);
 }
 
 #result {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 50px;
     font-weight: bold;
     color: green;
 }
+
+section {
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 50px auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 1000px;
+}
+
+figure img{
+    border: 3px inset #969533;
+    border-radius: 14px;
+}
+
+.cipher-demo{
+    margin: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(241, 225, 172);
+}
+
+    
